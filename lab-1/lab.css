@@ -1,0 +1,28 @@
+body {
+    font-family: 'Kanit', sans-serif;
+    background: #bdc3c7;
+    color: #34495e;
+    font-weight: bold;
+  }
+
+  .space{
+      background-color: #34495e;
+      border-radius: 25px;
+  }
+
+  td{
+    padding: 10px;
+  }
+
+  table, #h{
+    font-size: 20px;
+  }
+
+  #before{
+    font-size: 15px;
+  }
+
+  span{
+    font-weight: 800;
+    color: #617f9c;
+  }
