@@ -17,7 +17,7 @@
 						<td> Score: {{score}}</td>
 					</tr>
 					<tr>
-						<td>Time remain: {{turn}}</td>
+						<td>Time remain: {{time}}</td>
 					</tr>
 				</table>
 			</div>
@@ -61,6 +61,7 @@
 				speed: speed,
 				play: true,
 				turn: 30,
+				time: 30,
 				score: 0,
 				fruits: [
 					{ id: 1, type: 'red', pst: 5, run: true, step: 1 },
@@ -93,14 +94,23 @@
 						}
 						if ((this.fruits[f].pst == 12 || this.fruits[f].pst == 16) && this.fruits[f].run == true) {
 							if (this.fruits[f].type == 'red' && this.fruits[f].pst == 12) {
-								this.score++
+								this.score++;
+								this.time += 2;
 							} else if (this.fruits[f].type == 'yellow' && this.fruits[f].pst == 16) {
-								this.score++
+								this.score++;
+								this.time += 2;
+							} else if (this.fruits[f].type == 'yellow' && this.fruits[f].pst == 12) {
+								this.score--;
+								this.time -= 2;
+							} else if (this.fruits[f].type == 'red' && this.fruits[f].pst == 16) {
+								this.score--;
+								this.time -= 2;
 							}
 							this.fruits[f].run = false
 						}
 					}
-					if (this.turn == 0) {
+					if (this.time <= 0) {
+						this.time = 0;
 						this.play = false;
 						clearInterval(playing);
 					}
@@ -132,7 +142,8 @@
 		})
 
 		let playing = setInterval(function () {
-			app.turn--
+			app.turn--;
+			app.time--;
 		}, speed)
 	</script>
 </body>
