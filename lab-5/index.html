@@ -51,7 +51,7 @@
 			return Math.floor(Math.random() * 100 % shift) + start
 		}
 
-		let nextFruitId = 3
+		let nextFruitID = 3
 		let isRightArrow = 1
 		let speed = 1000
 		let app = new Vue({
@@ -103,6 +103,27 @@
 					if (this.turn == 0) {
 						this.play = false;
 						clearInterval(playing);
+					}
+
+					if (rand(0, 1) == 0) {
+						if (rand(0, 1) == 0) {
+							this.fruits.push({
+								id: nextFruitID,
+								type: 'red',
+								pst: 1,
+								run: true,
+								step: 1
+							})
+						} else {
+							this.fruits.push({
+								id: nextFruitID,
+								type: 'yellow',
+								pst: 1,
+								run: true,
+								step: 1
+							})
+						}
+						nextFruitID++
 					}
 
 					console.log()
